@@ -34,7 +34,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post(
-  '/wehbook-checkout',
+  '/webhook-checkout',
   express.raw({ type: 'application/json' }),
   bookingController.webhookCheckout
 );
