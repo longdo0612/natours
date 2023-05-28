@@ -25,6 +25,8 @@ app.use(
   })
 );
 
+app.options('*', cors());
+
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 
