@@ -34,6 +34,11 @@ app.use(express.json({ limit: '10kb' }));
 
 app.use(cookieParser());
 app.use(compression());
+
+app.get('/', (req, res, next) => {
+  res.status(200).send('App is working');
+});
+
 app.use('/api/v1/tours', toursRoute);
 app.use('/api/v1/users', usersRoute);
 app.use('/api/v1/reviews', reviewsRoute);
