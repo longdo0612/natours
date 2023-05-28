@@ -11,12 +11,7 @@ router.get(
 );
 
 router.use(authController.protect);
-router
-  .route('/my-tours')
-  .get(
-    bookingController.createBookingCheckout,
-    bookingController.getUserBookingsTours
-  );
+router.route('/my-tours').get(bookingController.getUserBookingsTours);
 
 router.use(authController.restrictTo('admin', 'lead-guide'));
 router

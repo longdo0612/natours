@@ -10,6 +10,7 @@ const toursRoute = require('./routes/tours');
 const usersRoute = require('./routes/users');
 const reviewsRoute = require('./routes/reviews');
 const bookingRoute = require('./routes/bookings');
+const bookingController = require('./controllers/bookingController');
 const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
@@ -31,6 +32,12 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.post(
+  '/wehbook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout
+);
 
 app.use(express.json({ limit: '10kb' }));
 
