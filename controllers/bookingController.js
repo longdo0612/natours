@@ -25,8 +25,8 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    success_url: `http://localhost:3000/my-tours`,
-    cancel_url: `http://localhost:3000/tours/${tour.slug}`,
+    success_url: `https://natours-longdo.netlify.app/my-tours`,
+    cancel_url: `https://natours-longdo.netlify.app/tours/${tour.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourId,
     mode: 'payment',
