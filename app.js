@@ -19,10 +19,15 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use(
-  cors({
+const corsOptions = {
     origin: 'https://natours-longdo.netlify.app',
     credentials: true,
+  }
+
+app.use(
+  cors({
+    origin: '*',
+    credentials: true
   })
 );
 
